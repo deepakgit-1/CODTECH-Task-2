@@ -1,0 +1,44 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# Example dataset (replace with your actual dataset loading code)
+data = {
+    'word': ['2-faces', 'abnormal', 'abolish', 'abominable', 'abominably', 'adorable', 'adore'],
+    'sentiment': ['negative', 'negative', 'negative', 'negative', 'negative', 'positive', 'positive']
+}
+df = pd.DataFrame(data)
+
+# Split dataset into features (X) and labels (y)
+X = df['word']
+y = df['sentiment']
+
+# Create TF-IDF vectorizer
+vectorizer = TfidfVectorizer()
+
+# Fit and transform the vectorizer on the text data
+X_tfidf = vectorizer.fit_transform(X)
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_tfidf, y, test_size=0.2, random_state=42)
+
+# Initialize Logistic Regression classifier
+classifier = LogisticRegression()
+
+# Train the classifier
+classifier.fit(X_train, y_train)
+
+# Predict on the test set
+y_pred = classifier.predict(X_test)
+
+# Evaluate the classifier
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy:.2f}')
+
+# Print classification report
+print(classification_report(y_test, y_pred))
+
+# Print confusion matrix
+print(confusion_matrix(y_test, y_pred))
