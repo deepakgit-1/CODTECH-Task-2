@@ -45,3 +45,9 @@ Statsmodels: For more detailed statistical modeling and analysis, providing comp
 OUTPUT:
 
 ![image](https://github.com/user-attachments/assets/9079f695-177d-4639-abe3-b18dd8451161)
+
+![image](https://github.com/user-attachments/assets/df253fa2-f6e1-43b4-9263-b8e5c842b9f4)
+
+![image](https://github.com/user-attachments/assets/a5868af0-483f-409f-9254-98a16106dfe9)
+
+
